@@ -4,7 +4,7 @@ function Laser(posicionNave, direccionNave){
 
 	this.actualizar = function(){
 		this.posicion.add(this.velocidad);
-	}
+	}// fin actualizar
 
 	this.dibujar = function(){
 		push();
@@ -12,7 +12,7 @@ function Laser(posicionNave, direccionNave){
 		strokeWeight(4);
 		point(this.posicion.x, this.posicion.y);
 		pop();
-	}
+	}// fin dibujar
 
 	this.colision = function(asteriode){
 		var distancia = dist(this.posicion.x, this.posicion.y, asteriode.posicion.x, asteriode.posicion.y);
@@ -21,13 +21,13 @@ function Laser(posicionNave, direccionNave){
 		}else{
 			return false;
 		}
-	}	
+	}	//fin colision
 
 	this.fueraPantalla = function(){
 		if (this.posicion.x > width || this.posicion.x < 0 || this.posicion.y > height || this.posicion.y < 0) {	
 			return true;
 		}
 		return false;
-	}
+	}// fin fueraPantalla
 
-}//end Laser
+}//fin Laser

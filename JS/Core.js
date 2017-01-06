@@ -15,27 +15,36 @@ function setup(){
 	createCanvas(canvasWidth, canvasHeight).parent('contenedor');
 	crearObjetos();
 	
-}//end setup
+}//fin setup
 
+
+//---función para creación de objetos inciales
 function crearObjetos(){
 	nave = new Nave();
 	for (i = 0; i < 10; i++) {
 		asteroides.push(new Asteroide());
 	}
-}
+} // fin crearObjetos
 
+
+//---Evento cuando se cambia el tamaño de la ventana
 function windowResized() {
   	canvas = select('#contenedor'),
 	canvasWidth = canvas.width,
 	canvasHeight = canvas.height;
 	resizeCanvas(canvasWidth, canvasHeight);
-}
+}//fin windowResized
+
+
 
 function draw(){
 	var i,j;
 	background(0);
+
+	//--- Puntaje
 	text('Puntaje: '+puntaje,10,10,70,80);
 	fill(255);
+
 	//---Asteroides---
 	for (i = 0; i < asteroides.length; i++) {
 		asteroides[i].dibujar();
@@ -70,21 +79,23 @@ function draw(){
 		}
 	}
 
-	//---NAVE---
+	//---Nave---
 	nave.dibujar();
 	nave.giro();
 	nave.actualizar();
 	nave.bordes();
 
 
-}// end draw
+}// fin draw
 
-
+//--evento cuando se suelta la tecla
 function keyReleased(){
 	nave.setRotacion(0);
 	nave.acelerando(false);
-}//end keyReleased
+}//fin keyReleased
 
+
+//-- evento cuando se presiona una tecla
 function keyPressed(){
 	if(key == ' '){
 		lasers.push(new Laser(nave.pos, nave.direccion));
@@ -95,4 +106,4 @@ function keyPressed(){
 	}else if (keyCode == UP_ARROW) {
 		nave.acelerando(true);
 	}
-}//end keyPressed
+}//fin keyPressed

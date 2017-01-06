@@ -21,7 +21,7 @@ function Asteroide(posicion, radio){
 
 	this.actualizar = function(){
 		this.posicion.add(this.velocidad);
-	}
+	}//fin actualizar
 
 	this.dibujar = function(){
 		var i, anguloAsteroide, x, y, lado;
@@ -40,10 +40,10 @@ function Asteroide(posicion, radio){
 			y = lado * sin(anguloAsteroide);
 			vertex(x, y);
 		}
-		endShape(CLOSE);
+		endShape(CLOSE); //para que la figura se cierre / funcion de p5
 
 		pop(); 
-	}// end dibujar
+	}// fin dibujar
 
 	this.romperse = function(){
 		var nuevoAsteroide = [];
@@ -51,7 +51,7 @@ function Asteroide(posicion, radio){
 		nuevoAsteroide[1] = new Asteroide (this.posicion, this.radio);
 		return nuevoAsteroide;
 
-	}//romperse
+	}//fin romperse
 
 
 	this.bordes = function(){
@@ -64,6 +64,6 @@ function Asteroide(posicion, radio){
 		}else if (this.posicion.y < -this.radio) {
 			this.posicion.y = height + this.radio;
 		}
-	}// end bordes
+	}// fin bordes
 
-}//end Asteriode
+}//fin Asteriode

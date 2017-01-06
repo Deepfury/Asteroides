@@ -8,7 +8,7 @@ function Nave(){
 
 	this.acelerando = function(aceleracion){
 		this.estaAcelerando = aceleracion;
-	}
+	}// fin acelerando
 
 	this.actualizar = function(){
 		if(this.estaAcelerando){
@@ -16,13 +16,13 @@ function Nave(){
 		}
 		this.pos.add(this.velocidad);
 		this.velocidad.mult(0.99);	
-	}
+	}// fin actualizar
 
 	this.acelerar = function(){
 		var fuerza = p5.Vector.fromAngle(this.direccion);
 		fuerza.mult(0.1);
 		this.velocidad.add(fuerza);
-	}
+	}//fin acelerar
 
 	this.colision = function(asteroide){
 		var distancia = dist(this.pos.x, this.pos.y, asteroide.posicion.x, asteroide.posicion.y);
@@ -31,7 +31,7 @@ function Nave(){
 		}else{
 			return false;
 		}
-	}
+	}// fin colision
 
 
 	this.dibujar = function(){
@@ -42,7 +42,7 @@ function Nave(){
 		stroke(0, 255, 0);
 		triangle(-this.lado , this.lado, this.lado, this.lado, 0, -this.lado);
 		pop();
-	}// end dibujar
+	}// fin dibujar
 
 	this.bordes = function(){
 		if (this.pos.x > width + this.lado) {
@@ -54,13 +54,14 @@ function Nave(){
 		}else if (this.pos.y < -this.lado) {
 			this.pos.y = height + this.lado;
 		}
-	}
+	}// fin bordes
 
 	this.setRotacion = function(angulo){
 		this.rotacion = angulo;
-	}
+	}//fin setRotacion
 
 	this.giro = function(){
 		this.direccion += this.rotacion;
-	}
-}//end nave
+	}//fin giro
+
+}//fin nave
