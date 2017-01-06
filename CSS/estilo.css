@@ -1,0 +1,10 @@
+canvas{
+	width: 100%;
+	height: auto;
+}
+
+#contenedor{
+	width: auto;
+    height: 450px;
+    margin: auto;
+}
